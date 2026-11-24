@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Claim Your $500 Walmart Reward | Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #111827;
+      --text-muted: #64748b;
+      --text-sub: #475569;
+      --link-blue: #0284c7;
+      --walmart-blue: #0071dc;
+      --walmart-spark: #ffc220;
+      --btn-bg: #111827;
+      --btn-hover: #1f2937;
+      --btn-active: #030712;
+      --border-color: #e2e8f0;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: 440px;
+      background: var(--card-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Top Progress Bar */
+    .progress-bar-container {
+      width: 100%;
+      height: 3px;
+      background-color: #e2e8f0;
+    }
+
+    .progress-bar-fill {
+      width: 100%;
+      height: 100%;
+      background-color: #111827;
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 24px 10px 24px;
+      font-size: 13px;
+      letter-spacing: -0.01em;
+    }
+
+    .step-header .step-count {
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .step-header .step-desc {
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .divider-line {
+      height: 1px;
+      background-color: #f1f5f9;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    /* Content Area */
+    .content {
+      padding: 0 24px 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Brand Logo */
+    .brand-logo-wrap {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .brand-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #0071dc;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .spark-icon {
+      width: 22px;
+      height: 22px;
+      fill: var(--walmart-spark);
+    }
+
+    /* Headline */
+    .headline {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      line-height: 1.18;
+      font-weight: 400;
+      color: #111827;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      text-align: center;
+    }
+
+    .sub-headline {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 26px;
+      max-width: 360px;
+    }
+
+    .sub-headline a {
+      color: var(--link-blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+    }
+
+    /* Reward Card */
+    .reward-card {
+      width: 100%;
+      background: linear-gradient(135deg, #13213c 0%, #0d1627 100%);
+      border-radius: 16px;
+      padding: 24px 22px 20px 22px;
+      color: #ffffff;
+      text-align: left;
+      position: relative;
+      box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.2), 0 4px 10px -2px rgba(15, 23, 42, 0.1);
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+
+    .reward-card::after {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+      pointer-events: none;
+    }
+
+    .card-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .card-brand {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-spark {
+      width: 14px;
+      height: 14px;
+      fill: var(--walmart-spark);
+    }
+
+    .card-chip {
+      width: 34px;
+      height: 26px;
+      background: linear-gradient(135deg, #e5c07b 0%, #c49746 100%);
+      border-radius: 4px;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .card-chip::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+    }
+
+    .card-chip-line {
+      position: absolute;
+      background: rgba(0,0,0,0.25);
+    }
+    .card-chip-line.h { top: 50%; left: 0; right: 0; height: 1px; }
+    .card-chip-line.v { left: 40%; top: 0; bottom: 0; width: 1px; }
+
+    .card-amount {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 400;
+      color: #ffffff;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .card-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #94a3b8;
+      letter-spacing: 0.02em;
+    }
+
+    /* Steps List */
+    .steps-container {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .step-number {
+      width: 26px;
+      height: 26px;
+      min-width: 26px;
+      border-radius: 50%;
+      border: 1.5px solid #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #111827;
+      margin-top: 1px;
+    }
+
+    .step-text {
+      flex: 1;
+    }
+
+    .step-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 2px;
+      line-height: 1.35;
+    }
+
+    .step-desc {
+      font-size: 12.5px;
+      color: #64748b;
+      line-height: 1.4;
+    }
+
+    /* CTA Buttons */
+    .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background-color: var(--btn-bg);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 15px 24px;
+      border-radius: 9px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(17, 24, 39, 0.15);
+      border: none;
+    }
+
+    .cta-btn:hover {
+      background-color: var(--btn-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.2);
+    }
+
+    .cta-btn:active {
+      transform: translateY(0);
+      background-color: var(--btn-active);
+    }
+
+    .cta-note {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 8px;
+      margin-bottom: 30px;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      width: 100%;
+      text-align: left;
+      margin-top: 10px;
+      margin-bottom: 28px;
+    }
+
+    .faq-heading {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: #111827;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 14px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #1e293b;
+      cursor: pointer;
+      gap: 12px;
+    }
+
+    .faq-icon {
+      font-size: 18px;
+      font-weight: 300;
+      color: #94a3b8;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s cubic-bezier(0, 1, 0, 1), padding 0.25s ease;
+      font-size: 12.5px;
+      color: #64748b;
+      line-height: 1.5;
+      padding: 0 0;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding-bottom: 14px;
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+      font-size: 10.5px;
+      color: #94a3b8;
+      line-height: 1.5;
+      text-align: left;
+      margin-bottom: 22px;
+      padding-top: 10px;
+    }
+
+    .disclaimer p {
+      margin-bottom: 8px;
+    }
+
+    .disclaimer p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Bottom Button Wrapper */
+    .bottom-cta-wrap {
+      width: 100%;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <!-- Top Progress Bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill"></div>
+    </div>
+
+    <!-- Step Header -->
+    <div class="step-header">
+      <span class="step-count">Step 2 of 2</span>
+      <span class="step-desc">Complete your registration</span>
+    </div>
+
+    <div class="divider-line"></div>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- Walmart Logo Branding -->
+      <div class="brand-logo-wrap">
+        <span class="brand-title">
+          Walmart
+          <svg class="spark-icon" viewBox="0 0 24 24">
+            <path d="M12 0c.6 0 1.1.4 1.2 1l.8 5.7c.1.6-.3 1.2-.9 1.3-.6.1-1.2-.3-1.3-.9L11 1.4C10.9.8 11.4 0 12 0zm6.9 3.9c.4-.4 1.1-.4 1.5 0 .4.4.4 1.1 0 1.5l-4.1 4.1c-.4.4-1.1.4-1.5 0-.4-.4-.4-1.1 0-1.5l4.1-4.1zm3.8 8.1c0 .6-.4 1.1-1 1.2l-5.7.8c-.6.1-1.2-.3-1.3-.9-.1-.6.3-1.2.9-1.3l5.7-.8c.6-.1 1.4.4 1.4 1zm-3.9 6.9c.4.4.4 1.1 0 1.5-.4.4-1.1.4-1.5 0l-4.1-4.1c-.4-.4-.4-1.1 0-1.5.4-.4 1.1-.4 1.5 0l4.1 4.1zM12 24c-.6 0-1.1-.4-1.2-1l-.8-5.7c-.1-.6.3-1.2.9-1.3.6-.1 1.2.3 1.3.9l.8 5.7c.1.6-.4 1.4-1 1.4zm-6.9-3.9c-.4.4-1.1.4-1.5 0-.4-.4-.4-1.1 0-1.5l4.1-4.1c.4-.4 1.1-.4 1.5 0 .4.4.4 1.1 0 1.5l-4.1 4.1zM1.3 12c0-.6.4-1.1 1-1.2l5.7-.8c.6-.1 1.2.3 1.3.9.1.6-.3 1.2-.9 1.3l-5.7.8c-.6.1-1.4-.4-1.4-1zm3.8-6.9c-.4-.4-.4-1.1 0-1.5.4-.4 1.1-.4 1.5 0l4.1 4.1c.4.4.4 1.1 0 1.5-.4.4-1.1.4-1.5 0L5.1 5.1z"/>
+          </svg>
+        </span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="headline">Finish claiming your $500 to spend at Walmart</h1>
+
+      <!-- Subtitle -->
+      <p class="sub-headline">
+        You're almost there. <a href="#steps-list">Follow the four steps below</a> to qualify for your Walmart reward.
+      </p>
+
+      <!-- Digital Reward Card Element -->
+      <div class="reward-card">
+        <div class="card-top-row">
+          <div class="card-brand">
+            WALMART
+            <svg class="card-spark" viewBox="0 0 24 24">
+              <path d="M12 0c.6 0 1.1.4 1.2 1l.8 5.7c.1.6-.3 1.2-.9 1.3-.6.1-1.2-.3-1.3-.9L11 1.4C10.9.8 11.4 0 12 0zm6.9 3.9c.4-.4 1.1-.4 1.5 0 .4.4.4 1.1 0 1.5l-4.1 4.1c-.4.4-1.1.4-1.5 0-.4-.4-.4-1.1 0-1.5l4.1-4.1zm3.8 8.1c0 .6-.4 1.1-1 1.2l-5.7.8c-.6.1-1.2-.3-1.3-.9-.1-.6.3-1.2.9-1.3l5.7-.8c.6-.1 1.4.4 1.4 1zm-3.9 6.9c.4.4.4 1.1 0 1.5-.4.4-1.1.4-1.5 0l-4.1-4.1c-.4-.4-.4-1.1 0-1.5.4-.4 1.1-.4 1.5 0l4.1 4.1zM12 24c-.6 0-1.1-.4-1.2-1l-.8-5.7c-.1-.6.3-1.2.9-1.3.6-.1 1.2.3 1.3.9l.8 5.7c.1.6-.4 1.4-1 1.4zm-6.9-3.9c-.4.4-1.1.4-1.5 0-.4-.4-.4-1.1 0-1.5l4.1-4.1c.4-.4 1.1-.4 1.5 0 .4.4.4 1.1 0 1.5l-4.1 4.1zM1.3 12c0-.6.4-1.1 1-1.2l5.7-.8c.6-.1 1.2.3 1.3.9.1.6-.3 1.2-.9 1.3l-5.7.8c-.6.1-1.4-.4-1.4-1zm3.8-6.9c-.4-.4-.4-1.1 0-1.5.4-.4 1.1-.4 1.5 0l4.1 4.1c.4.4.4 1.1 0 1.5-.4.4-1.1.4-1.5 0L5.1 5.1z"/>
+            </svg>
+          </div>
+          <div class="card-chip">
+            <div class="card-chip-line h"></div>
+            <div class="card-chip-line v"></div>
+          </div>
+        </div>
+
+        <div class="card-amount">$500</div>
+        <div class="card-label">Shopping credit</div>
+      </div>
+
+      <!-- 4 Steps Container -->
+      <div class="steps-container" id="steps-list">
+        
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <div class="step-title">Tap "Claim my $500" below</div>
+            <div class="step-desc">It opens the secure sign-up page.</div>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <div class="step-title">Enter your email and basic info</div>
+            <div class="step-desc">Use an email you check. Updates on your reward go there.</div>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            <div class="step-title">Complete 3 to 5 sponsored deals</div>
+            <div class="step-desc">You pick which ones. Each deal lists its own steps.</div>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-text">
+            <div class="step-title">Get your $500 to spend at Walmart</div>
+            <div class="step-desc">Groceries, household items, electronics. Spend it on what you need.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Main Action Button -->
+      <a href="https://aodify.com/c?o=kd4aq&a=pbxf5&source=fb-wal" class="cta-btn" target="_blank" rel="noopener noreferrer">
+        Claim my $500
+      </a>
+      <div class="cta-note">No cost to sign up. Open to US residents 18+.</div>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="faq-heading">Questions</h2>
+        
+        <div class="faq-list">
+          
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>What counts as a sponsored deal?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Sponsored deals include popular mobile games, subscription services, free trials, and apps from brand partners. Each deal lists clear instructions (such as reaching a level in a game or completing a free trial).
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Do I have to buy anything?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Many deals are completely free (such as downloading apps or playing mobile games). While some premium offers might require a purchase or trial, you have full freedom to choose whichever combination of deals works best for you.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>How long does it take?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Most participants complete their required deals within 5 to 15 minutes. Once your completed deals are confirmed, instructions to receive your $500 shopping credit are sent directly to your registered email.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Who can claim this?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              This promotion is open to legal residents of the United States who are 18 years or older with a valid email address.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Can I do this on my phone or computer?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Yes! You can complete the steps on any smartphone (iOS or Android), tablet, or desktop browser. Using a smartphone is often fastest because many popular deals are quick mobile apps.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Legal Disclaimer -->
+      <div class="disclaimer">
+        <p>This page is not run by, sponsored by, or affiliated with Walmart. Walmart is a trademark of its respective owner and is used here only to describe the reward.</p>
+        <p>The $500 reward is provided through a third-party promotion. Eligibility, deal requirements, and reward terms are set by the sponsor and shown on the sign-up page.</p>
+      </div>
+
+      <!-- Bottom Action Button -->
+      <div class="bottom-cta-wrap">
+        <a href="https://aodify.com/c?o=kd4aq&a=pbxf5&source=fb-wal" class="cta-btn" target="_blank" rel="noopener noreferrer">
+          Claim my $500
+        </a>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    // FAQ Accordion functionality
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        
+        // Optional: close other open items for clean accordion UX
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('open');
+          }
+        });
+
+        if (isOpen) {
+          item.classList.remove('open');
+        } else {
+          item.classList.add('open');
+        }
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
